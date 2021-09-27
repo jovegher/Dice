@@ -1,29 +1,38 @@
 void setup()
 {
-	noLoop();
+  size(500,500);
+  noLoop();
 }
+int x = 20;
+int y = 20;
 void draw()
 {
-	//your code here
+for(y = 20; y < 480; y += 20) {
+  for (x = 20; x < 480; x += 20)
+    rect(x,y,20,20); 
+}
 }
 void mousePressed()
 {
-	redraw();
+  redraw();
 }
 class Die //models one single dice cube
 {
-	//variable declarations here
-	
-	Die(int x, int y) //constructor
-	{
-		//variable initializations here
-	}
-	void roll()
-	{
-		//your code here
-	}
-	void show()
-	{
-		//your code here
-	}
+  int mySize, sizeX, sizeY;
+  sizeX = 20;
+  sizeY = 20;
+} 
+  
+  Die(int x, int y) //constructor
+  {
+
+  }
+  void roll()
+  {
+    //your code here
+  }
+  void show()
+  {
+    //your code here
+  }
 }
