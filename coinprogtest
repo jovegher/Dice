@@ -1,0 +1,55 @@
+class Coin {
+  boolean isHeads;
+  int myX, myY;
+  
+  Coin(int x, int y) {
+    isHeads = true; 
+    myX = x;
+    myY = y;
+  }
+  
+  void flip()
+  {
+    if (Math.random() < 0.5)
+    {
+      isHeads = true;
+  } else {
+      isHeads = false;
+    }
+  }
+  
+  void show()
+  {
+    noStroke();
+    fill(255, 255, 255);
+    ellipse(myX, myY, 50, 50);
+    fill(0);
+    if (isHeads == true)
+    {
+      text("H", myX, myY);
+    } else {
+      fill(0);
+      text("T", myX, myY);
+    }
+  }
+}
+  Coin dollar;
+  void setup()
+  {
+    size(500,500);
+    noLoop();
+
+  }
+
+  void draw()
+  {
+    for(int x = 0; x < 8; x++) {
+    dollar = new Coin(x * 60+60, 150);
+    dollar.show();
+    dollar.flip();
+    }
+  }
+    void mousePressed() {
+    redraw();
+  }
+  
