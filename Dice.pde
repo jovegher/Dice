@@ -1,8 +1,9 @@
 void setup() {
   size(520, 520);
-  int r = Math.random(200, 255);
-  int g = Math.random(200, 255);
-  int b = Math.random(200, 255);
+  int r = (int)(Math.random()*255)+200;
+  int g = (int)(Math.random()*255)+200;
+  int b = (int)(Math.random()*255)+200;
+  int sum;
 }
 
   void draw()
@@ -10,45 +11,63 @@ void setup() {
     background (103, 58, 29);
     Die test = new Die();
     test.show();
+    test.redraw();
   }
 
-void mousePressed()
-{
-  redraw();
-}
-
-class Die //models one single dice cube
-{
-  int dots, myX, myY;
-  Die(int x, int y)
+  void mousePressed()
   {
-    dots = (int)(Math.random()*6)+1;
-    myX = 30;
-    myY = 30;
-    for (y = 20; y < 480; y += 30) {
-      for (x = 20; x < 480; x += 30)
-        rect(x, y, myX, myY);
-    } 
+    redraw();
   }
 
-  void roll() {
-    if (dots == 1) {
-     ellipse(x, y, 3, 3);
-    } else if (displayNum == 2) {
-      ellipse(x-5, y-5, 3, 3);
-      ellipse(x+5, y+5, 3, 3);  
-    } else if (displayNum == 3) {
-      
-    } else if (displayNum == 4) {
-      
-    } else if (displayNum == 5) {
-      
-    } else {
-      
+  class Die
+  {
+    int numDots, myX, myY;
+    Die(int x, int y)
+    {
+      numDots = 0;
+      myX = x;
+      myY = y;
+      for (y = 20; y < 480; y += 30) {
+        for (x = 20; x < 480; x += 30)
+          rect(x, y, 30, 30);
+      }
+    }
+
+    void roll() {
+      numDots = (int)(Math.random()*6)+1;
+      sum = sum + numDots;
     }
     void show()
     {
       fill(r, g, b);
       rect(x, y, 30, 30);
+      if (numDots == 1) {
+        ellipse(x, y, 3, 3);
+      } else if (numDots == 2) {
+        ellipse(x-5, y, 3, 3);
+        ellipse(x+5, y, 3, 3); 
+        } else if (numDots == 3) {
+        ellipse(x, y + 5, 3, 3);
+        ellipse(x - 3, y - 3, 3, 3);
+        ellipse(x + 3, y + 3, 3, 3);
+        } else if (numDots == 4) {
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+        } else if (numDots == 5) {
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+        } else {
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+        ellipse(
+      }
     }
   }
