@@ -25,8 +25,8 @@ void draw()
   textSize(16);
   text("Total sum of rolls: " + sum, 10, 510);
   textSize(12);
-  text("Average sum per die: " + sum / 225, 270, 500);
-  text("Total rolls: " + rollNum, 270, 515);
+  text("Average sum per die: " + sum / 225, 225, 500);
+  text("Total rolls: " + rollNum, 225, 515);
   
 }
 
